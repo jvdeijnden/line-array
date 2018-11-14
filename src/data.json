@@ -1,7 +1,19 @@
 {
-  "power": "ja",
-  "volume": "nee",
-  "eq-low": "test",
-  "eq-mid": "test",
-  "eq-high": "test"
+  "power": "false",
+  "volume": "0",
+  "eq": [
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0"
+  ],
+  "beaming": {
+    "angle": "0",
+    "distance": "0"
+  }
 }
