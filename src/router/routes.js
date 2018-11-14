@@ -1,11 +1,24 @@
-// import Layout from 'layouts/Layout'
-
 const routes = [
   {
     path: '/',
     component: () => import('layouts/Layout.vue'),
     children: [
-      { path: '', component: () => import('pages/Power.vue') }
+      {
+        path: '',
+        component: () => import('pages/Power.vue')
+      },
+      {
+        path: 'power',
+        component: () => import('pages/Power.vue')
+      },
+      {
+        path: 'equalizer',
+        component: () => import('pages/Equalizer.vue')
+      },
+      {
+        path: 'beaming',
+        component: () => import('pages/Beaming.vue')
+      }
     ]
   }
 ]

@@ -32,41 +32,39 @@
         inset-delimiter
       >
         <q-list-header>Menu</q-list-header>
-        <q-item @click.native="openURL('power')">
-          <q-item-side icon="code" />
+        <q-item to='power'>
+          <q-item-side icon="power_settings_new" />
           <q-item-main label="Power" />
         </q-item>
-        <q-item @click.native="openURL('equalizer')">
-          <q-item-side icon="settings" />
+        <q-item to='equalizer'>
+          <q-item-side icon="equalizer" />
           <q-item-main label="Equalizer" />
         </q-item>
-        <q-item @click.native="openURL('beamforming')">
-          <q-item-side icon="settings" />
+        <q-item to='beaming'>
+          <q-item-side icon="leak_add" />
           <q-item-main label="Beam forming" />
         </q-item>
-        <q-item @click.native="openURL('about')">
+        <q-item to='about'>
           <q-item-side icon="info" />
           <q-item-main label="About" />
         </q-item>
       </q-list>
     </q-layout-drawer>
-    <router-view />
+
+    <q-page-container>
+      <router-view />
+    </q-page-container>
   </q-layout>
 </template>
 
 <script>
 import { openURL } from 'quasar'
-import json from 'app/src/data.json'
+// import json from 'app/src/data.json'
 
 export default {
   name: 'Layout',
   data () {
     return {
-      checkPower: false,
-      model: 0,
-      sliderLow: 0,
-      sliderMid: 0,
-      sliderHigh: 0,
       leftDrawerOpen: this.$q.platform.is.desktop
     }
   },
@@ -75,11 +73,6 @@ export default {
   }
 }
 
-function writeToJson (val) {
-  console.log(json, val)
-}
-
-writeToJson(0)
 </script>
 
 <style>
