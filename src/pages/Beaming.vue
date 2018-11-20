@@ -1,4 +1,5 @@
 <template>
+  <q-page padding class="docs-input row justify-center">
     <div id="beaming">
       <q-slider
         v-model="beamingY"
@@ -6,7 +7,7 @@
         :max="10"
         :step="1"
         color="pantone"
-        @change="writeToJson(beaming['angle'], beamingY)"
+        @change="jsonWrite(beaming['angle'], beamingY)"
       />
       <q-slider
         v-model="beamingX"
@@ -14,9 +15,10 @@
         :max="10"
         :step="1"
         color="pantone"
-        @change="writeToJson(beaming['distance'], beamingX)"
+        @change="jsonWrite(beaming['distance'], beamingX)"
       />
     </div>
+  </q-page>
 </template>
 
 <script>

@@ -1,8 +1,8 @@
 {
   "name": "test",
   "version": "1.0.0",
-  "description": "A Quasar Framework app",
-  "productName": "Quasar App",
+  "description": "An app for controlling the Fontys Line Array project",
+  "productName": "Line Array App",
   "cordovaId": "org.cordova.quasar.app",
   "author": "jvdeijnden <joseijnden@gmail.com>",
   "private": true,

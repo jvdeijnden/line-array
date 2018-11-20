@@ -59,7 +59,7 @@
 
 <script>
 import { openURL } from 'quasar'
-// import json from 'app/src/data.json'
+import jsonWrite from 'plugins/jsonWrite.js'
 
 export default {
   name: 'Layout',
@@ -69,7 +69,8 @@ export default {
     }
   },
   methods: {
-    openURL
+    openURL,
+    jsonWrite
   }
 }
 

@@ -4,9 +4,10 @@
         <p class="caption">Power</p>
         <q-toggle
           v-model="powerCheck"
+          name="power"
           left-label
           color="pantone"
-          @change="writeToJson(checkPower)"
+          @change="jsonWrite()"
         />
         <p class="caption">Volume</p>
         <q-knob
@@ -15,9 +16,10 @@
           style="font-size: 1.5rem"
           color="pantone"
           line-width="5px"
-          :min="min"
-          :max="max"
+          :min=0
+          :max=100
           :step="5"
+          @change="jsonWrite()"
         >
           <q-icon class="on-left" name="volume_up" /> {{ volumeKnob }}
         </q-knob>
@@ -27,12 +29,20 @@
 </template>
 
 <script>
+import json from '../data.json'
+
 export default {
   name: 'Power',
   data () {
     return {
-      powerCheck: false,
-      volumeKnob: 0
+      powerCheck: json['power'],
+      volumeKnob: json['volume']
+    }
+  },
+  methods: {
+    jsonWrite () {
+      console.log('hello')
+      json[this.name] = this.value
     }
   }
 }
