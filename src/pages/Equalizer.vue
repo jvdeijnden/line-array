@@ -95,6 +95,12 @@ export default {
       slider7: json['eq']['7'],
       slider8: json['eq']['8']
     }
+  },
+  methods: {
+    jsonWrite () {
+      console.log('hello')
+      json[this.name] = this.value
+    }
   }
 }
 

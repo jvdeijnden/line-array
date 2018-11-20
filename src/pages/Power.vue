@@ -6,13 +6,14 @@
           v-model="powerCheck"
           name="power"
           left-label
+          size="50vw"
           color="pantone"
           @change="jsonWrite()"
         />
         <p class="caption">Volume</p>
         <q-knob
           v-model="volumeKnob"
-          size="200px"
+          size="50vw"
           style="font-size: 1.5rem"
           color="pantone"
           line-width="5px"

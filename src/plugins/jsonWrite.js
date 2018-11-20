@@ -1,8 +1,8 @@
-import json from '../data.json'
+// import json from '../data.json'
 
-function jsonWrite (key, value) {
-  json[key] = value
-  console.log(json)
+function jsonWrite () {
+  // json[key] = value
+  console.log('hello')
 }
 
 export default jsonWrite
