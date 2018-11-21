@@ -1,6 +1,6 @@
 <template>
   <q-page padding class="docs-input row justify-center">
-    <div id="eq">
+    <div>
       <p class="caption">Equalizer</p>
       <q-slider
         v-model="slider0"
@@ -8,7 +8,7 @@
         :max="10"
         :step="1"
         color="pantone"
-        @change="jsonWrite(eq[0], slider0)"
+        @change="jsonWrite()"
       />
       <q-slider
         v-model="slider1"
@@ -16,15 +16,16 @@
         :max="10"
         :step="1"
         color="pantone"
-        @change="jsonWrite(eq[1], slider1)"
+        @change="jsonWrite()"
       />
       <q-slider
+        id="eq"
         v-model="slider2"
         :min="0"
         :max="10"
         :step="1"
         color="pantone"
-        @change="jsonWrite(eq[2], slider2)"
+        @change="jsonWrite()"
       />
       <q-slider
         v-model="slider3"
@@ -32,7 +33,7 @@
         :max="10"
         :step="1"
         color="pantone"
-        @change="jsonWrite(eq[3], slider3)"
+        @change="jsonWrite()"
       />
       <q-slider
         v-model="slider4"
@@ -40,7 +41,7 @@
         :max="10"
         :step="1"
         color="pantone"
-        @change="jsonWrite(eq[4], slider4)"
+        @change="jsonWrite()"
       />
       <q-slider
         v-model="slider5"
@@ -48,7 +49,7 @@
         :max="10"
         :step="1"
         color="pantone"
-        @change="jsonWrite(eq[5], slider5)"
+        @change="jsonWrite()"
       />
       <q-slider
         v-model="slider6"
@@ -56,7 +57,7 @@
         :max="10"
         :step="1"
         color="pantone"
-        @change="jsonWrite(eq[6], slider6)"
+        @change="jsonWrite()"
       />
       <q-slider
         v-model="slider7"
@@ -64,7 +65,7 @@
         :max="10"
         :step="1"
         color="pantone"
-        @change="jsonWrite(eq[7], slider7)"
+        @change="jsonWrite()"
       />
       <q-slider
         v-model="slider8"
@@ -72,7 +73,7 @@
         :max="10"
         :step="1"
         color="pantone"
-        @change="jsonWrite(eq[8], slider8)"
+        @change="jsonWrite()"
       />
     </div>
   </q-page>
@@ -85,15 +86,15 @@ export default {
   name: 'Equalizer',
   data () {
     return {
-      slider0: json['eq']['0'],
-      slider1: json['eq']['1'],
-      slider2: json['eq']['2'],
-      slider3: json['eq']['3'],
-      slider4: json['eq']['4'],
-      slider5: json['eq']['5'],
-      slider6: json['eq']['6'],
-      slider7: json['eq']['7'],
-      slider8: json['eq']['8']
+      slider0: json.eq['0'],
+      slider1: json.eq['1'],
+      slider2: json.eq['2'],
+      slider3: json.eq['3'],
+      slider4: json.eq['4'],
+      slider5: json.eq['5'],
+      slider6: json.eq['6'],
+      slider7: json.eq['7'],
+      slider8: json.eq['8']
     }
   },
   methods: {
