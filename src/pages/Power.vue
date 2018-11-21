@@ -8,7 +8,7 @@
             name="power"
             left-label
             color="pantone"
-            @change="jsonWrite()"
+            @change=jsonWrite()
           />
         </div>
         <div class="q-py-lg">
@@ -22,7 +22,7 @@
             :min=0
             :max=100
             :step="5"
-            @change="jsonWrite()"
+            @change=jsonWrite()
           >
             <q-icon class="on-left" name="volume_up" /> {{ volumeKnob }}
           </q-knob>
@@ -34,6 +34,7 @@
 <script>
 import json from '../data.json'
 
+console.log('hello1')
 export default {
   name: 'Power',
   data () {
@@ -44,7 +45,7 @@ export default {
   },
   methods: {
     jsonWrite () {
-      console.log('hello')
+      console.log('hello2')
       json[this.name] = this.value
     }
   }
