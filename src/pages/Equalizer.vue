@@ -8,7 +8,7 @@
         :max="10"
         :step="1"
         color="pantone"
-        @input="jsonWrite(0, slider0)"
+        @change="jsonWrite()"
       />
       <q-slider
         v-model="slider1"
@@ -16,7 +16,7 @@
         :max="10"
         :step="1"
         color="pantone"
-        @input="jsonWrite(1, slider1)"
+        @change="jsonWrite()"
       />
       <q-slider
         id="eq"
@@ -25,7 +25,7 @@
         :max="10"
         :step="1"
         color="pantone"
-        @input="jsonWrite(2, slider2)"
+        @change="jsonWrite()"
       />
       <q-slider
         v-model="slider3"
@@ -33,7 +33,7 @@
         :max="10"
         :step="1"
         color="pantone"
-        @input="jsonWrite(3, slider3)"
+        @change="jsonWrite()"
       />
       <q-slider
         v-model="slider4"
@@ -41,7 +41,7 @@
         :max="10"
         :step="1"
         color="pantone"
-        @input="jsonWrite(4, slider4)"
+        @change="jsonWrite()"
       />
       <q-slider
         v-model="slider5"
@@ -49,7 +49,7 @@
         :max="10"
         :step="1"
         color="pantone"
-        @input="jsonWrite(5, slider5)"
+        @change="jsonWrite()"
       />
       <q-slider
         v-model="slider6"
@@ -57,7 +57,7 @@
         :max="10"
         :step="1"
         color="pantone"
-        @input="jsonWrite(6, slider6)"
+        @change="jsonWrite()"
       />
       <q-slider
         v-model="slider7"
@@ -65,7 +65,7 @@
         :max="10"
         :step="1"
         color="pantone"
-        @input="jsonWrite(7, slider7)"
+        @change="jsonWrite()"
       />
       <q-slider
         v-model="slider8"
@@ -73,14 +73,14 @@
         :max="10"
         :step="1"
         color="pantone"
-        @input="jsonWrite(8, slider8)"
+        @change="jsonWrite()"
       />
     </div>
   </q-page>
 </template>
 
 <script>
-import json from 'src/statics/data.json'
+import json from '../data.json'
 
 export default {
   name: 'Equalizer',
@@ -98,10 +98,25 @@ export default {
     }
   },
   methods: {
-    jsonWrite (key, value) {
-      console.log(json)
-      json.eq[key] = value
+    jsonWrite () {
+      console.log('hello')
+      json[this.name] = this.value
     }
   }
 }
+
+// import { dom } from 'quasar'
+// const { cssTransform } = dom
+
+// let props = cssTransform('rotateX(90deg)')
+
+// Vue.component({
+//   el: '#eq',
+//   props: props
+// })
+
 </script>
+
+<style scoped>
+
+</style>

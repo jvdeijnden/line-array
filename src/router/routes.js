@@ -1,5 +1,5 @@
 // import json from data
-import json from 'src/statics/data.json'
+import json from 'src/data.json'
 // console.log(json)
 // const data = JSON.parse(json)
 
