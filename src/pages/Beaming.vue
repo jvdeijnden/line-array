@@ -1,11 +1,11 @@
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script>
+<script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/apexcharts'></script>
+<script src='https://cdn.jsdelivr.net/npm/vue-apexcharts'></script>
 <script>
-import VueApexCharts from 'vue-apexcharts'
-Vue.use(VueApexCharts)
+import VueApexCharts from 'vue-apexcharts';
+Vue.use(VueApexCharts);
 
-Vue.component('apexchart', VueApexCharts)
+Vue.component('apexchart', VueApexCharts);
 
 const chart = new Vue({
   el: '#chart',
@@ -13,12 +13,12 @@ const chart = new Vue({
     apexchart: VueApexCharts
   },
   data: {
-    series: [{
-      name: 'Beam',
-      data: [
-        [16.4, 5.4]
-      ]
-    }],
+    series: [
+      {
+        name: 'Beam',
+        data: [[16.4, 5.4]]
+      }
+    ],
     chartOptions: {
       chart: {
         zoom: {
@@ -34,56 +34,72 @@ const chart = new Vue({
       }
     }
   }
-})
+});
 </script>
 
 <template>
-  <q-page padding class="docs-input row justify-center">
-    <div id="beaming">
+  <q-page padding class='docs-input row justify-center'>
+    <div id='beaming'>
       <q-slider
-        v-model="beamingY"
-        :min="0"
-        :max="10"
-        :step="1"
-        color="pantone"
-        @change="jsonWrite()"
+        v-model='beamingY'
+        :min='0'
+        :max='10'
+        :step='1'
+        color='pantone'
+        @input="jsonWrite('beaming.angle', beamingY)"
       />
-      <div id="chart">
-        <apexchart type=scatter height=350 :options="chartOptions" :series="series" />
+      <div id='chart'>
+        <apexchart type='scatter' height='350' :options='chartOptions' :series='series'/>
       </div>
 
       <q-slider
-        v-model="beamingX"
-        :min="0"
-        :max="10"
-        :step="1"
-        color="pantone"
-        @change="jsonWrite()"
+        v-model='beamingX'
+        :min='0'
+        :max='10'
+        :step='1'
+        color='pantone'
+        @input="jsonWrite('beaming.distance', beamingX)"
       />
     </div>
   </q-page>
 </template>
 
 <script>
-import json from '../data.json'
+import VueApexCharts from 'vue-apexcharts'
+Vue.use(VueApexCharts)
 
+Vue.component('apexchart', VueApexCharts)
 export default {
-  name: 'Beaming',
-  data () {
-    return {
-      beamingX: json.beaming.angle,
-      beamingY: json.beaming.distance
+  el: '#chart',
+  components: {
+    apexchart: VueApexCharts
+  },
+  data: {
+    series: [
+      {
+        name: 'Beam',
+        data: [[16.4, 5.4]]
+      }
+    ],
+    chartOptions: {
+      chart: {
+        zoom: {
+          enabled: true,
+          type: 'xy'
+        }
+      },
+      xaxis: {
+        tickAmount: 10
+      },
+      yaxis: {
+        tickAmount: 7
+      }
     }
   },
   methods: {
-    jsonWrite () {
-      console.log('hello')
-      json[this.name] = this.value
+    jsonWrite (key, value) {
+      json[key] = value
     }
   }
 }
 </script>
-
-<style scoped>
-
-</style>
