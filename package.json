@@ -19,6 +19,7 @@
     "express": "^4.16.4",
     "layouts": "^3.0.1",
     "pages": "0.0.16",
+    "request": "^2.88.0",
     "serve-static": "^1.13.2",
     "vue": "latest",
     "vue-router": "latest"
