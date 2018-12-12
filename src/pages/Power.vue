@@ -35,7 +35,6 @@
 import json from '../data.json'
 import axios from 'axios'
 
-console.log('hello1')
 export default {
   name: 'Power',
   data () {
@@ -49,7 +48,7 @@ export default {
       console.log(key)
       json[key] = value
       axios
-        .get()
+        .get(location.host + '/write/' + key + '/' + value)
     }
   }
 }

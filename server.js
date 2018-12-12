@@ -1,3 +1,5 @@
+import json from '../data.json'
+
 const
   express = require('express'),
   // http = require('http').Server(express),
@@ -12,6 +14,10 @@ const app = express()
 // io.on('connection', function (socket) {
 //   console.log('a user connected')
 // })
+
+app.get('/json', function (req, res) {
+  res.send(json)
+})
 
 app.use(history())
 app.use(serveStatic(path.join(path.resolve(), '/dist/spa-mat')))

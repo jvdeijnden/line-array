@@ -80,6 +80,7 @@
 
 <script>
 import json from '../data.json'
+import axios from 'axios'
 
 export default {
   name: 'Equalizer',
@@ -100,6 +101,8 @@ export default {
     jsonWrite (key, value) {
       console.log(key)
       json.eq[key] = value
+      axios
+        .get(location.host + '/write/eq[' + key + ']/' + value)
     }
   }
 }

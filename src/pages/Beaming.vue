@@ -46,7 +46,7 @@ const chart = new Vue({
         :max="10"
         :step="1"
         color="pantone"
-        @change="jsonWrite()"
+        @input="jsonWrite('distance', beamingY)"
       />
       <div id="chart">
         <apexchart type=scatter height=350 :options="chartOptions" :series="series" />
@@ -58,7 +58,7 @@ const chart = new Vue({
         :max="10"
         :step="1"
         color="pantone"
-        @change="jsonWrite()"
+        @input="jsonWrite('angle', beamingX)"
       />
     </div>
   </q-page>
@@ -66,6 +66,7 @@ const chart = new Vue({
 
 <script>
 import json from '../data.json'
+import axios from 'axios'
 
 export default {
   name: 'Beaming',
@@ -76,9 +77,10 @@ export default {
     }
   },
   methods: {
-    jsonWrite () {
-      console.log('hello')
-      json[this.name] = this.value
+    jsonWrite (key, value) {
+      json[key] = value
+      axios
+        .get(location.host + '/write/beaming[' + key + ']/' + value)
     }
   }
 }
