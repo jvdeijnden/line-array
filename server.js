@@ -16,9 +16,9 @@ const app = express()
 //   console.log('a user connected')
 // })
 
-app.get('/json', function (req, res) {
-  res.send(json)
-})
+// app.get('/json', function (req, res) {
+//   res.send(json)
+// })
 
 app.use(history())
 app.use(serveStatic(path.join(path.resolve(), '/dist/spa-mat')))
