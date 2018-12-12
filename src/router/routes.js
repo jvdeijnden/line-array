@@ -1,5 +1,4 @@
 // import json from data
-import json from 'src/data.json'
 // console.log(json)
 // const data = JSON.parse(json)
 
@@ -25,10 +24,6 @@ const routes = [
         component: () => import('pages/Beaming.vue')
       }
     ]
-  },
-  {
-    path: '/json',
-    template: json
   }
 ]
 

@@ -1,6 +1,7 @@
-import json from '../data.json'
+import json from './src/data.json'
 
 const
+  // json = require('./src/data.json'),
   express = require('express'),
   // http = require('http').Server(express),
   // io = require('socket.io')(http),
