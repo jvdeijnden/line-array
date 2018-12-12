@@ -8,7 +8,7 @@
         :max="10"
         :step="1"
         color="pantone"
-        @change="jsonWrite()"
+        @input="jsonWrite('0', slider0)"
       />
       <q-slider
         v-model="slider1"
@@ -16,16 +16,15 @@
         :max="10"
         :step="1"
         color="pantone"
-        @change="jsonWrite()"
+        @input="jsonWrite('1', slider1)"
       />
       <q-slider
-        id="eq"
         v-model="slider2"
         :min="0"
         :max="10"
         :step="1"
         color="pantone"
-        @change="jsonWrite()"
+        @input="jsonWrite('2', slider2)"
       />
       <q-slider
         v-model="slider3"
@@ -33,7 +32,7 @@
         :max="10"
         :step="1"
         color="pantone"
-        @change="jsonWrite()"
+        @input="jsonWrite('3', slider3)"
       />
       <q-slider
         v-model="slider4"
@@ -41,7 +40,7 @@
         :max="10"
         :step="1"
         color="pantone"
-        @change="jsonWrite()"
+        @input="jsonWrite('4', slider4)"
       />
       <q-slider
         v-model="slider5"
@@ -49,7 +48,7 @@
         :max="10"
         :step="1"
         color="pantone"
-        @change="jsonWrite()"
+        @input="jsonWrite('5', slider5)"
       />
       <q-slider
         v-model="slider6"
@@ -57,7 +56,7 @@
         :max="10"
         :step="1"
         color="pantone"
-        @change="jsonWrite()"
+        @input="jsonWrite('6', slider6)"
       />
       <q-slider
         v-model="slider7"
@@ -65,7 +64,7 @@
         :max="10"
         :step="1"
         color="pantone"
-        @change="jsonWrite()"
+        @input="jsonWrite('7', slider7)"
       />
       <q-slider
         v-model="slider8"
@@ -73,7 +72,7 @@
         :max="10"
         :step="1"
         color="pantone"
-        @change="jsonWrite()"
+        @input="jsonWrite('8', slider8)"
       />
     </div>
   </q-page>
@@ -98,9 +97,9 @@ export default {
     }
   },
   methods: {
-    jsonWrite () {
-      console.log('hello')
-      json[this.name] = this.value
+    jsonWrite (key, value) {
+      console.log(key)
+      json.eq[key] = value
     }
   }
 }
