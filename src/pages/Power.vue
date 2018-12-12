@@ -8,7 +8,7 @@
             name="power"
             left-label
             color="pantone"
-            @change=jsonWrite()
+            @input="jsonWrite('power', powerCheck)"
           />
         </div>
         <div class="q-py-lg">
@@ -22,7 +22,7 @@
             :min=0
             :max=100
             :step="5"
-            @change=jsonWrite()
+            @input="jsonWrite('volume', volumeKnob)"
           >
             <q-icon class="on-left" name="volume_up" /> {{ volumeKnob }}
           </q-knob>
@@ -33,6 +33,7 @@
 
 <script>
 import json from '../data.json'
+import axios from 'axios'
 
 console.log('hello1')
 export default {
@@ -44,9 +45,11 @@ export default {
     }
   },
   methods: {
-    jsonWrite () {
-      console.log('hello2')
-      json[this.name] = this.value
+    jsonWrite (key, value) {
+      console.log(key)
+      json[key] = value
+      axios
+        .get()
     }
   }
 }
