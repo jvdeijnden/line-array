@@ -80,7 +80,10 @@ export default {
     jsonWrite (key, value) {
       json[key] = value
       axios
-        .get(location.host + '/write/beaming[' + key + ']/' + value)
+        .get(location.protocol + '//' + location.hostname + ':8080/api?' + key + '=' + value)
+        .catch(error => {
+          console.log(error)
+        })
     }
   }
 }

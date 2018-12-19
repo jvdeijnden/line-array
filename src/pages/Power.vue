@@ -1,3 +1,5 @@
+<script src="/socket.io/socket.io.js"></script>
+
 <template>
     <q-page padding class="docs-input row justify-center">
       <div style="width: 500px; max-width: 90vw;">
@@ -34,9 +36,22 @@
 <script>
 import json from '../data.json'
 import axios from 'axios'
+import io from 'socket.io-client'
+// import Vue from 'vue'
+// import VueSocketIO from 'vue-socket.io'
+const socket = io.connect('http://localhost:8080')
+
+socket.on('data', function (data) {
+  console.log(data)
+})
 
 export default {
   name: 'Power',
+  // sockets: {
+  //   connect: function () {
+  //     console.log('socket connected')
+  //   }
+  // },
   data () {
     return {
       powerCheck: json.power,
@@ -45,10 +60,13 @@ export default {
   },
   methods: {
     jsonWrite (key, value) {
-      console.log(key)
+      console.log(location.protocol + location.hostname + ':8080/api?' + key + '=' + value)
       json[key] = value
       axios
-        .get(location.host + '/write/' + key + '/' + value)
+        .get(location.protocol + '//' + location.hostname + ':8080/api?' + key + '=' + value)
+        .catch(error => {
+          console.log(error)
+        })
     }
   }
 }

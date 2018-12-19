@@ -59,18 +59,17 @@
 
 <script>
 import { openURL } from 'quasar'
-import jsonWrite from 'plugins/jsonWrite.js'
 
 export default {
   name: 'Layout',
   data () {
     return {
+      json: null,
       leftDrawerOpen: this.$q.platform.is.desktop
     }
   },
   methods: {
-    openURL,
-    jsonWrite
+    openURL
   }
 }
 

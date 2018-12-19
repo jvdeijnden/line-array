@@ -102,7 +102,10 @@ export default {
       console.log(key)
       json.eq[key] = value
       axios
-        .get(location.host + '/write/eq[' + key + ']/' + value)
+        .get(location.protocol + '//' + location.hostname + ':8080/api?eq[' + key + ']=' + value)
+        .catch(error => {
+          console.log(error)
+        })
     }
   }
 }

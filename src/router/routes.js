@@ -1,7 +1,3 @@
-// import json from data
-// console.log(json)
-// const data = JSON.parse(json)
-
 const routes = [
   {
     path: '/',
