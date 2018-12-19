@@ -36,14 +36,14 @@
 <script>
 import json from '../data.json'
 import axios from 'axios'
-import io from 'socket.io-client'
+// import io from 'socket.io-client'
 // import Vue from 'vue'
 // import VueSocketIO from 'vue-socket.io'
-const socket = io.connect('http://localhost:8080')
+// const socket = io.connect('http://localhost:8080')
 
-socket.on('data', function (data) {
-  console.log(data)
-})
+// socket.on('data', function (data) {
+//   console.log(data)
+// })
 
 export default {
   name: 'Power',
