@@ -1,78 +1,105 @@
 <template>
   <q-page padding class="docs-input row justify-center">
-    <div>
-      <p class="caption">Equalizer</p>
+    <div id="eq">
+      <p class="caption">9-band equalizer</p>
       <q-slider
-        v-model="slider0"
+        :value="slider0"
         :min="0"
-        :max="10"
-        :step="1"
+        :max="100"
+        :step="5"
+        markers=true
+        label-always=true
+        :label-value="`${slider0}%`"
         color="pantone"
-        @input="jsonWrite('0', slider0)"
+        @change="val => { jsonWrite('eq0', val) }"
       />
       <q-slider
         v-model="slider1"
         :min="0"
-        :max="10"
-        :step="1"
+        :max="100"
+        :step="5"
+        markers=true
+        label-always=true
+        :label-value="`${slider1}%`"
         color="pantone"
-        @input="jsonWrite('1', slider1)"
+        @change="jsonWrite('eq1', slider1)"
       />
       <q-slider
         v-model="slider2"
         :min="0"
-        :max="10"
-        :step="1"
+        :max="100"
+        :step="5"
+        markers=true
+        label-always=true
+        :label-value="`${slider2}%`"
         color="pantone"
-        @input="jsonWrite('2', slider2)"
+        @change="jsonWrite('eq2', slider2)"
       />
       <q-slider
         v-model="slider3"
         :min="0"
-        :max="10"
-        :step="1"
+        :max="100"
+        :step="5"
+        markers=true
+        label-always=true
+        :label-value="`${slider3}%`"
         color="pantone"
-        @input="jsonWrite('3', slider3)"
+        @change="jsonWrite('eq3', slider3)"
       />
       <q-slider
         v-model="slider4"
         :min="0"
-        :max="10"
-        :step="1"
+        :max="100"
+        :step="5"
+        markers=true
+        label-always=true
+        :label-value="`${slider4}%`"
         color="pantone"
-        @input="jsonWrite('4', slider4)"
+        @change="jsonWrite('eq4', slider4)"
       />
       <q-slider
         v-model="slider5"
         :min="0"
-        :max="10"
-        :step="1"
+        :max="100"
+        :step="5"
+        markers=true
+        label-always=true
+        :label-value="`${slider5}%`"
         color="pantone"
-        @input="jsonWrite('5', slider5)"
+        @change="jsonWrite('eq5', slider5)"
       />
       <q-slider
         v-model="slider6"
         :min="0"
-        :max="10"
-        :step="1"
+        :max="100"
+        :step="5"
+        markers=true
+        label-always=true
+        :label-value="`${slider6}%`"
         color="pantone"
-        @input="jsonWrite('6', slider6)"
+        @change="jsonWrite('eq6', slider6)"
       />
       <q-slider
         v-model="slider7"
         :min="0"
-        :max="10"
-        :step="1"
+        :max="100"
+        :step="5"
+        markers=true
+        label-always=true
+        :label-value="`${slider7}%`"
         color="pantone"
-        @input="jsonWrite('7', slider7)"
+        @change="jsonWrite('eq7', slider7)"
       />
       <q-slider
         v-model="slider8"
         :min="0"
-        :max="10"
-        :step="1"
+        :max="100"
+        :step="5"
+        markers=true
+        label-always=true
+        :label-value="`${slider8}%`"
         color="pantone"
-        @input="jsonWrite('8', slider8)"
+        @change="jsonWrite('eq8', slider8)"
       />
     </div>
   </q-page>
@@ -86,23 +113,24 @@ export default {
   name: 'Equalizer',
   data () {
     return {
-      slider0: json.eq['0'],
-      slider1: json.eq['1'],
-      slider2: json.eq['2'],
-      slider3: json.eq['3'],
-      slider4: json.eq['4'],
-      slider5: json.eq['5'],
-      slider6: json.eq['6'],
-      slider7: json.eq['7'],
-      slider8: json.eq['8']
+      slider0: json.eq0,
+      slider1: json.eq1,
+      slider2: json.eq2,
+      slider3: json.eq3,
+      slider4: json.eq4,
+      slider5: json.eq5,
+      slider6: json.eq6,
+      slider7: json.eq7,
+      slider8: json.eq8
     }
   },
   methods: {
     jsonWrite (key, value) {
       console.log(key)
-      json.eq[key] = value
+      console.log(value)
+      json[key] = value
       axios
-        .get(location.protocol + '//' + location.hostname + ':8080/api?eq[' + key + ']=' + value)
+        .get(location.protocol + '//' + location.hostname + ':8080/api?' + key + '=' + value)
         .catch(error => {
           console.log(error)
         })

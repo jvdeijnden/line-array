@@ -1,19 +1,15 @@
 {
   "power": false,
-  "volume": 50,
-  "eq": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-  ],
-  "beaming": {
-    "angle": 6,
-    "distance": 8
-  }
+  "volume": 0,
+  "eq0": 50,
+  "eq1": 50,
+  "eq2": 50,
+  "eq3": 50,
+  "eq4": 50,
+  "eq5": 50,
+  "eq6": 50,
+  "eq7": 50,
+  "eq8": 50,
+  "angle": 0,
+  "distance": 0
 }

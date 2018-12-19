@@ -5,8 +5,8 @@ const
   serveStatic = require('serve-static'),
   // proxy = require('http-proxy-middleware'),
   history = require('connect-history-api-fallback'), // when using vue router history mode
-  appPort = process.env.PORT || 80,
-  apiPort = 8080
+  appPort = process.env.APP_PORT || 80,
+  apiPort = process.env.API_PORT || 8080
 
 const
   app = express(),
