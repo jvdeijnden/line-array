@@ -17,7 +17,7 @@ export default {
   mounted () {
     setInterval(function () {
       axios
-        .get(location.protocol + '//' + location.hostname + ':8080/api')
+        .get(location.protocol + '//' + location.hostname + '/api')
         .catch(error => {
           console.log(error)
         })

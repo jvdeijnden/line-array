@@ -78,9 +78,10 @@ export default {
   },
   methods: {
     jsonWrite (key, value) {
+      console.log(location.protocol + location.hostname + '/api?' + key + '=' + value)
       json[key] = value
       axios
-        .get(location.protocol + '//' + location.hostname + ':8080/api?' + key + '=' + value)
+        .get(location.protocol + '//' + location.hostname + '/api?' + key + '=' + value)
         .catch(error => {
           console.log(error)
         })
