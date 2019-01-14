@@ -4,6 +4,9 @@ module.exports = function (ctx) {
   return {
     // app plugins (/src/plugins)
     plugins: [
+      'axios',
+      'apexcharts',
+      'jsonwrite'
     ],
     css: [
       'app.styl'
@@ -50,7 +53,7 @@ module.exports = function (ctx) {
         'QPage',
         'QToolbar',
         'QToolbarTitle',
-        'QBtn',
+        // 'QBtn',
         'QIcon',
         'QList',
         'QListHeader',
@@ -63,7 +66,8 @@ module.exports = function (ctx) {
       ],
       // Quasar plugins
       plugins: [
-        'Notify'
+        'Notify',
+        'Loading'
       ]
       // iconSet: ctx.theme.mat ? 'material-icons' : 'ionicons'
       // i18n: 'de' // Quasar language
@@ -77,9 +81,9 @@ module.exports = function (ctx) {
       // workboxPluginMode: 'InjectManifest',
       workboxOptions: {},
       manifest: {
-        name: 'Line Array Demo',
-        short_name: 'Line Array Demo',
-        description: 'Line Array speaker demo app',
+        name: 'Line Array Control',
+        short_name: 'Line Array Control',
+        description: 'Line Array Web App',
         start_url: '/#/',
         display: 'standalone',
         orientation: 'portrait',

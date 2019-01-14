@@ -1,90 +1,73 @@
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script>
-<script>
-import VueApexCharts from 'vue-apexcharts'
-Vue.use(VueApexCharts)
-
-Vue.component('apexchart', VueApexCharts)
-
-const chart = new Vue({
-  el: '#chart',
-  components: {
-    apexchart: VueApexCharts
-  },
-  data: {
-    series: [{
-      name: 'Beam',
-      data: [
-        [16.4, 5.4]
-      ]
-    }],
-    chartOptions: {
-      chart: {
-        zoom: {
-          enabled: true,
-          type: 'xy'
-        }
-      },
-      xaxis: {
-        tickAmount: 10
-      },
-      yaxis: {
-        tickAmount: 7
-      }
-    }
-  }
-})
-</script>
-
 <template>
   <q-page padding class="docs-input row justify-center">
-    <div id="beaming">
+    <div id="beaming-chart">
+      <apexchart type=scatter height=350 :options="chartOptions" :series="series" />
+    </div>
+    <div id="eq">
+      <p class="caption">Beaming angle</p>
       <q-slider
-        v-model="beamingY"
+        :value="angle"
         :min="0"
-        :max="10"
+        :max="-35"
         :step="1"
+        markers=true
+        label-always=true
+        :label-value="`${json.angle}°`"
         color="pantone"
-        @input="jsonWrite('distance', beamingY)"
+        @change="val => { angle = val; this.$jsonWrite('angle', angle) }"
       />
-      <div id="chart">
-        <apexchart type=scatter height=350 :options="chartOptions" :series="series" />
-      </div>
 
+      <p class="caption">Beaming distance</p>
       <q-slider
-        v-model="beamingX"
+        :value="distance"
         :min="0"
         :max="10"
         :step="1"
+        markers=true
+        label-always=true
+        :label-value="`${distance}m`"
         color="pantone"
-        @input="jsonWrite('angle', beamingX)"
+        @change="val => { distance = val; this.$jsonWrite('distance', distance) }"
       />
     </div>
   </q-page>
 </template>
 
 <script>
-import json from '../data.json'
-import axios from 'axios'
-
 export default {
   name: 'Beaming',
   data () {
     return {
-      beamingX: json.beaming.angle,
-      beamingY: json.beaming.distance
+      options: {
+        chart: {
+          id: 'beaming-chart'
+        },
+        xaxis: {
+          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+        }
+      },
+      series: [{
+        name: 'series-1',
+        data: [30, 40, 45, 50, 49, 60, 70, 91]
+      }]
     }
   },
-  methods: {
-    jsonWrite (key, value) {
-      console.log(location.protocol + location.hostname + '/api?' + key + '=' + value)
-      json[key] = value
-      axios
-        .get(location.protocol + '//' + location.hostname + '/api?' + key + '=' + value)
-        .catch(error => {
-          console.log(error)
-        })
+  computed: {
+    angle: {
+      get () {
+        return this.$store.state.appSettings.angle
+      },
+      set (val) {
+        this.$store.commit('appSettings/updateAngle', val)
+      }
+    },
+    distance: {
+      get () {
+        return this.$store.state.appSettings.distance
+      },
+      set (val) {
+        this.$store.commit('appSettings/updateDistance', val)
+      }
     }
   }
 }

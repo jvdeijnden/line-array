@@ -3,150 +3,192 @@
     <div id="eq">
       <p class="caption">9-band equalizer</p>
       <q-slider
-        :value="slider0"
+        :value="eq0"
         :min="0"
         :max="100"
         :step="5"
         markers=true
         label-always=true
-        :label-value="`${slider0}%`"
+        :label-value="`${eq0}%`"
         color="pantone"
-        @change="val => { jsonWrite('eq0', val) }"
+        @change="val => { eq0 = val; this.jsonWrite('eq0', eq0) }"
       />
       <q-slider
-        v-model="slider1"
+        v-model="klaas"
+        :value="eq1"
         :min="0"
         :max="100"
         :step="5"
         markers=true
         label-always=true
-        :label-value="`${slider1}%`"
+        :label-value="`${klaas}%`"
         color="pantone"
-        @change="jsonWrite('eq1', slider1)"
+        @input="klaas = eq1"
+        @change="val => { eq1 = val; this.jsonWrite('eq1', eq1) }"
       />
       <q-slider
-        v-model="slider2"
+        :value="eq2"
         :min="0"
         :max="100"
         :step="5"
         markers=true
         label-always=true
-        :label-value="`${slider2}%`"
+        :label-value="`${eq2}%`"
         color="pantone"
-        @change="jsonWrite('eq2', slider2)"
+        @change="val => { eq2 = val; this.jsonWrite('eq2', eq2) }"
       />
       <q-slider
-        v-model="slider3"
+        :value="eq3"
         :min="0"
         :max="100"
         :step="5"
         markers=true
         label-always=true
-        :label-value="`${slider3}%`"
+        :label-value="`${val}%`"
         color="pantone"
-        @change="jsonWrite('eq3', slider3)"
+        @change="val => { eq3 = val; this.jsonWrite('eq3', eq3) }"
       />
       <q-slider
-        v-model="slider4"
+        :value="eq4"
         :min="0"
         :max="100"
         :step="5"
         markers=true
         label-always=true
-        :label-value="`${slider4}%`"
+        :label-value="`${val}%`"
         color="pantone"
-        @change="jsonWrite('eq4', slider4)"
+        @change="val => { eq4 = val; this.jsonWrite('eq4', eq4) }"
       />
       <q-slider
-        v-model="slider5"
+        :value="eq5"
         :min="0"
         :max="100"
         :step="5"
         markers=true
         label-always=true
-        :label-value="`${slider5}%`"
+        :label-value="`${val}%`"
         color="pantone"
-        @change="jsonWrite('eq5', slider5)"
+        @change="val => { eq5 = val; this.jsonWrite('eq5', eq5) }"
       />
       <q-slider
-        v-model="slider6"
+        :value="eq6"
         :min="0"
         :max="100"
         :step="5"
         markers=true
         label-always=true
-        :label-value="`${slider6}%`"
+        :label-value="`${val}%`"
         color="pantone"
-        @change="jsonWrite('eq6', slider6)"
+        @change="val => { eq6 = val; this.jsonWrite('eq6', eq6) }"
       />
       <q-slider
-        v-model="slider7"
+        :value="eq7"
         :min="0"
         :max="100"
         :step="5"
         markers=true
         label-always=true
-        :label-value="`${slider7}%`"
+        :label-value="`${val}%`"
         color="pantone"
-        @change="jsonWrite('eq7', slider7)"
+        @change="val => { eq7 = val; this.jsonWrite('eq7', eq7) }"
       />
       <q-slider
-        v-model="slider8"
+        :value="eq8"
         :min="0"
         :max="100"
         :step="5"
         markers=true
         label-always=true
-        :label-value="`${slider8}%`"
+        :label-value="`${val}%`"
         color="pantone"
-        @change="jsonWrite('eq8', slider8)"
+        @change="val => { eq8 = val; this.jsonWrite('eq8', eq8) }"
       />
     </div>
   </q-page>
 </template>
 
 <script>
-import json from '../data.json'
-import axios from 'axios'
-
 export default {
   name: 'Equalizer',
   data () {
     return {
-      slider0: json.eq0,
-      slider1: json.eq1,
-      slider2: json.eq2,
-      slider3: json.eq3,
-      slider4: json.eq4,
-      slider5: json.eq5,
-      slider6: json.eq6,
-      slider7: json.eq7,
-      slider8: json.eq8
     }
   },
-  methods: {
-    jsonWrite (key, value) {
-      console.log(location.protocol + location.hostname + '/api?' + key + '=' + value)
-      json[key] = value
-      axios
-        .get(location.protocol + '//' + location.hostname + '/api?' + key + '=' + value)
-        .catch(error => {
-          console.log(error)
-        })
+  computed: {
+    eq0: {
+      get () {
+        return this.$store.state.appSettings.eq0
+      },
+      set (val) {
+        this.$store.commit('appSettings/updateEq0', val)
+      }
+    },
+    eq1: {
+      get () {
+        return this.$store.state.appSettings.eq1
+      },
+      set (val) {
+        this.$store.commit('appSettings/updateEq1', val)
+      }
+    },
+    eq2: {
+      get () {
+        return this.$store.state.appSettings.eq2
+      },
+      set (val) {
+        this.$store.commit('appSettings/updateEq2', val)
+      }
+    },
+    eq3: {
+      get () {
+        return this.$store.state.appSettings.eq3
+      },
+      set (val) {
+        this.$store.commit('appSettings/updateEq3', val)
+      }
+    },
+    eq4: {
+      get () {
+        return this.$store.state.appSettings.eq4
+      },
+      set (val) {
+        this.$store.commit('appSettings/updateEq4', val)
+      }
+    },
+    eq5: {
+      get () {
+        return this.$store.state.appSettings.eq5
+      },
+      set (val) {
+        this.$store.commit('appSettings/updateEq5', val)
+      }
+    },
+    eq6: {
+      get () {
+        return this.$store.state.appSettings.eq6
+      },
+      set (val) {
+        this.$store.commit('appSettings/updateEq6', val)
+      }
+    },
+    eq7: {
+      get () {
+        return this.$store.state.appSettings.eq7
+      },
+      set (val) {
+        this.$store.commit('appSettings/updateEq7', val)
+      }
+    },
+    eq8: {
+      get () {
+        return this.$store.state.appSettings.eq8
+      },
+      set (val) {
+        this.$store.commit('appSettings/updateEq8', val)
+      }
     }
   }
 }
-
-// import { dom } from 'quasar'
-// const { cssTransform } = dom
-
-// let props = cssTransform('rotateX(90deg)')
-
-// Vue.component({
-//   el: '#eq',
-//   props: props
-// })
-
 </script>
 
 <style scoped>

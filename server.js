@@ -5,11 +5,9 @@ const
   serveStatic = require('serve-static'),
   // proxy = require('http-proxy-middleware'),
   history = require('connect-history-api-fallback'), // when using vue router history mode
-  appPort = process.env.PORT || 8080
-  // apiPort = process.env.API_PORT || 8080
+  appPort = process.env.PORT || 80
 
 const app = express()
-// api = express()
 // http = require('http').Server(api),
 // io = require('socket.io')(http)
 
@@ -72,14 +70,6 @@ app.get('/api', function (req, res) {
   }
   res.send(json)
 })
-
-// app.use('/api', proxy({
-//   target: 'localhost:' + apiPort + '/api',
-//   pathRewrite: {'^/api': ''}
-// }))
-
-// api.use(history())
-// api.listen(apiPort)
 
 app.use(history())
 app.use(serveStatic(path.join(path.resolve(), '/dist/pwa-mat')))
