@@ -1,20 +1,19 @@
 <template>
   <q-page padding class="docs-input row justify-center">
+    <!-- <img src="./assets/linearray.png"> -->
     <div id="beaming-chart">
-      <apexchart type=scatter height=350 :options="chartOptions" :series="series" />
+      <apexchart type=line height=350 :options="beamingOptions" :series="beamingSeries" />
     </div>
     <div id="eq">
       <p class="caption">Beaming angle</p>
       <q-slider
         :value="angle"
         :min="0"
-        :max="-35"
+        :max="35"
         :step="1"
-        markers=true
-        label-always=true
-        :label-value="`${json.angle}°`"
         color="pantone"
-        @change="val => { angle = val; this.$jsonWrite('angle', angle) }"
+        @change="val => { angle = val; this.jsonWrite('angle', angle) }"
+        label
       />
 
       <p class="caption">Beaming distance</p>
@@ -23,11 +22,9 @@
         :min="0"
         :max="10"
         :step="1"
-        markers=true
-        label-always=true
-        :label-value="`${distance}m`"
         color="pantone"
-        @change="val => { distance = val; this.$jsonWrite('distance', distance) }"
+        @change="val => { distance = val; this.jsonWrite('distance', distance) }"
+        label
       />
     </div>
   </q-page>
@@ -38,17 +35,30 @@ export default {
   name: 'Beaming',
   data () {
     return {
-      options: {
+      beamingData: [],
+      beamingOptions: {
         chart: {
           id: 'beaming-chart'
         },
         xaxis: {
-          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+          min: 0,
+          max: 10,
+          type: 'numeric',
+          categories: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        },
+        yaxis: {
+          min: -7,
+          max: 5,
+          opposite: true
+        },
+        stroke: {
+          width: 5,
+          dashArray: 5
         }
       },
-      series: [{
-        name: 'series-1',
-        data: [30, 40, 45, 50, 49, 60, 70, 91]
+      beamingSeries: [{
+        name: 'beam',
+        data: []
       }]
     }
   },

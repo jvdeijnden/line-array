@@ -51,6 +51,11 @@ app.get('/api', function (req, res) {
         if (eq >= 0 && eq <= 100) {
           json[key] = eq
         }
+      } else if (key.includes('speaker')) {
+        var speaker = parseInt(req.query[key])
+        if (speaker >= 0 && speaker <= 100) {
+          json[key] = speaker
+        }
       } else if (key === 'angle') {
         var angle = parseInt(req.query[key])
         if (angle >= 0 && angle <= 100) {

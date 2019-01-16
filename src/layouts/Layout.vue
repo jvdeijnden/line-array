@@ -40,6 +40,10 @@
           <q-item-side icon="equalizer" />
           <q-item-main label="Equalizer" />
         </q-item>
+        <q-item to='speaker'>
+          <q-item-side icon="speaker" />
+          <q-item-main label="Speaker control" />
+        </q-item>
         <q-item to='beaming'>
           <q-item-side icon="leak_add" />
           <q-item-main label="Beam forming" />

@@ -6,6 +6,8 @@ import {
   // with custom spinner
   // QSpinnerGears
 } from 'quasar'
+// import Equalizer from 'pages/Equalizer.vue'
+
 var serverOffline
 
 export default ({ Vue, store }) => {
@@ -32,19 +34,33 @@ export default ({ Vue, store }) => {
       })
       .then(response => {
         if (response !== undefined) {
-          store.commit('appSettings/updatePower', response.data.power)
-          store.commit('appSettings/updateVolume', response.data.volume)
-          store.commit('appSettings/updateEq0', response.data.eq0)
-          store.commit('appSettings/updateEq1', response.data.eq1)
-          store.commit('appSettings/updateEq2', response.data.eq2)
-          store.commit('appSettings/updateEq3', response.data.eq3)
-          store.commit('appSettings/updateEq4', response.data.eq4)
-          store.commit('appSettings/updateEq5', response.data.eq5)
-          store.commit('appSettings/updateEq6', response.data.eq6)
-          store.commit('appSettings/updateEq7', response.data.eq7)
-          store.commit('appSettings/updateEq8', response.data.eq8)
-          store.commit('appSettings/updateAngle', response.data.angle)
-          store.commit('appSettings/updateDistance', response.data.distance)
+          if (response.data.power !== store.state.appSettings.power) {
+            store.commit('appSettings/updatePower', response.data.power)
+          }
+
+          if (response.data.volume !== store.state.appSettings.volume) {
+            store.commit('appSettings/updateVolume', response.data.volume)
+          }
+
+          for (var i = 0; i <= 8; i++) {
+            if (response.data['eq' + i] !== store.state.appSettings['eq' + i]) {
+              store.commit('appSettings/updateEq' + i, response.data['eq' + i])
+            }
+          }
+
+          for (var j = 0; j <= 8; j++) {
+            if (response.data['speaker' + j] !== store.state.appSettings['speaker' + j]) {
+              store.commit('appSettings/updateSpeaker' + j, response.data['speaker' + j])
+            }
+          }
+
+          if (response.data.angle !== store.state.appSettings.angle) {
+            store.commit('appSettings/updateAngle', response.data.angle)
+          }
+
+          if (response.data.distance !== store.state.appSettings.distance) {
+            store.commit('appSettings/updateDistance', response.data.distance)
+          }
 
           if (serverOffline) {
             Loading.hide()

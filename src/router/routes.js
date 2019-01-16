@@ -16,6 +16,10 @@ const routes = [
         component: () => import('pages/Equalizer.vue')
       },
       {
+        path: 'speaker',
+        component: () => import('pages/Speaker.vue')
+      },
+      {
         path: 'beaming',
         component: () => import('pages/Beaming.vue')
       }
