@@ -5,7 +5,6 @@ export default ({ Vue, store }) => {
       .get(location.protocol + '//' + location.hostname + '/api?' + key + '=' + value)
       .catch(error => {
         console.log(error)
-        console.log('hi')
       })
   }
 }
