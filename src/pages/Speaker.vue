@@ -110,24 +110,24 @@ export default {
           // min: 0,
           // max: 8,
           type: 'categories',
-          categories () {
-            var output = []
-            for (var i = 0; i <= 8; i++) {
-              output.push('Speaker ' + i)
-            }
-            return output
-          }
-          // categories: [
-          //   'Speaker 0',
-          //   'Speaker 1',
-          //   'Speaker 2',
-          //   'Speaker 3',
-          //   'Speaker 4',
-          //   'Speaker 5',
-          //   'Speaker 6',
-          //   'Speaker 7',
-          //   'Speaker 8'
-          // ]
+          // categories () {
+          //   var output = []
+          //   for (var i = 0; i <= 8; i++) {
+          //     output.push('Speaker ' + i)
+          //   }
+          //   return output
+          // }
+          categories: [
+            'Speaker 0',
+            'Speaker 1',
+            'Speaker 2',
+            'Speaker 3',
+            'Speaker 4',
+            'Speaker 5',
+            'Speaker 6',
+            'Speaker 7',
+            'Speaker 8'
+          ]
         },
         yaxis: {
           min: 0,
