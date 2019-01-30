@@ -95,6 +95,9 @@
         label
       />
     </div>
+    <q-page-sticky position="bottom-right" :offset="[25, 25]">
+      <q-btn round color="pantone" @click="resetSpeakers()" icon="mdi-undo" />
+    </q-page-sticky>
   </q-page>
 </template>
 
@@ -144,6 +147,11 @@ export default {
         this.jsonWrite('speaker0', val)
         this.$store.commit('appSettings/updateSpeaker0', val)
         this.$store.commit('updateGains')
+
+        for (var i = 0; i <= 8; i++) {
+          this.jsonWrite('gain' + i, this.$store.state.appSettings.gains[i])
+        }
+
         this.$root.$emit('updateSpeakerSeries')
         this.$root.$emit('updateGainSeries')
       }
@@ -156,6 +164,10 @@ export default {
         this.jsonWrite('speaker1', val)
         this.$store.commit('appSettings/updateSpeaker1', val)
         this.$store.commit('updateGains')
+
+        for (var i = 0; i <= 8; i++) {
+          this.jsonWrite('gain' + i, this.$store.state.appSettings.gains[i])
+        }
         this.$root.$emit('updateSpeakerSeries')
         this.$root.$emit('updateGainSeries')
       }
@@ -168,6 +180,9 @@ export default {
         this.jsonWrite('speaker2', val)
         this.$store.commit('appSettings/updateSpeaker2', val)
         this.$store.commit('updateGains')
+        for (var i = 0; i <= 8; i++) {
+          this.jsonWrite('gain' + i, this.$store.state.appSettings.gains[i])
+        }
         this.$root.$emit('updateSpeakerSeries')
         this.$root.$emit('updateGainSeries')
       }
@@ -180,6 +195,9 @@ export default {
         this.jsonWrite('speaker3', val)
         this.$store.commit('appSettings/updateSpeaker3', val)
         this.$store.commit('updateGains')
+        for (var i = 0; i <= 8; i++) {
+          this.jsonWrite('gain' + i, this.$store.state.appSettings.gains[i])
+        }
         this.$root.$emit('updateSpeakerSeries')
         this.$root.$emit('updateGainSeries')
       }
@@ -192,6 +210,9 @@ export default {
         this.jsonWrite('speaker4', val)
         this.$store.commit('appSettings/updateSpeaker4', val)
         this.$store.commit('updateGains')
+        for (var i = 0; i <= 8; i++) {
+          this.jsonWrite('gain' + i, this.$store.state.appSettings.gains[i])
+        }
         this.$root.$emit('updateSpeakerSeries')
         this.$root.$emit('updateGainSeries')
       }
@@ -204,6 +225,9 @@ export default {
         this.jsonWrite('speaker5', val)
         this.$store.commit('appSettings/updateSpeaker5', val)
         this.$store.commit('updateGains')
+        for (var i = 0; i <= 8; i++) {
+          this.jsonWrite('gain' + i, this.$store.state.appSettings.gains[i])
+        }
         this.$root.$emit('updateSpeakerSeries')
         this.$root.$emit('updateGainSeries')
       }
@@ -216,6 +240,9 @@ export default {
         this.jsonWrite('speaker6', val)
         this.$store.commit('appSettings/updateSpeaker6', val)
         this.$store.commit('updateGains')
+        for (var i = 0; i <= 8; i++) {
+          this.jsonWrite('gain' + i, this.$store.state.appSettings.gains[i])
+        }
         this.$root.$emit('updateSpeakerSeries')
         this.$root.$emit('updateGainSeries')
       }
@@ -228,6 +255,9 @@ export default {
         this.jsonWrite('speaker7', val)
         this.$store.commit('appSettings/updateSpeaker7', val)
         this.$store.commit('updateGains')
+        for (var i = 0; i <= 8; i++) {
+          this.jsonWrite('gain' + i, this.$store.state.appSettings.gains[i])
+        }
         this.$root.$emit('updateSpeakerSeries')
         this.$root.$emit('updateGainSeries')
       }
@@ -240,6 +270,9 @@ export default {
         this.jsonWrite('speaker8', val)
         this.$store.commit('appSettings/updateSpeaker8', val)
         this.$store.commit('updateGains')
+        for (var i = 0; i <= 8; i++) {
+          this.jsonWrite('gain' + i, this.$store.state.appSettings.gains[i])
+        }
         this.$root.$emit('updateSpeakerSeries')
         this.$root.$emit('updateGainSeries')
       }
