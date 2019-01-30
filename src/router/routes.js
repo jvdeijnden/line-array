@@ -1,27 +1,39 @@
+import AppLayout from 'layouts/AppLayout.vue'
+import GainPage from 'pages/GainPage.vue'
+import EqualizerPage from 'pages/EqualizerPage.vue'
+import SpeakerPage from 'pages/SpeakerPage.vue'
+import BeamingPage from 'pages/BeamingPage.vue'
+import AboutPage from 'pages/AboutPage.vue'
+import Error404Page from 'pages/Error404Page.vue'
+
 const routes = [
   {
     path: '/',
-    component: () => import('layouts/Layout.vue'),
+    component: AppLayout,
     children: [
       {
         path: '',
-        component: () => import('pages/Power.vue')
+        redirect: 'gain'
       },
       {
-        path: 'power',
-        component: () => import('pages/Power.vue')
+        path: 'gain',
+        component: GainPage
       },
       {
         path: 'equalizer',
-        component: () => import('pages/Equalizer.vue')
+        component: EqualizerPage
       },
       {
         path: 'speaker',
-        component: () => import('pages/Speaker.vue')
+        component: SpeakerPage
       },
       {
         path: 'beaming',
-        component: () => import('pages/Beaming.vue')
+        component: BeamingPage
+      },
+      {
+        path: 'about',
+        component: AboutPage
       }
     ]
   }
@@ -31,7 +43,7 @@ const routes = [
 if (process.env.MODE !== 'ssr') {
   routes.push({
     path: '*',
-    component: () => import('pages/Error404.vue')
+    component: Error404Page
   })
 }
 

@@ -3,48 +3,20 @@ const
   express = require('express'),
   path = require('path'),
   serveStatic = require('serve-static'),
-  // proxy = require('http-proxy-middleware'),
   history = require('connect-history-api-fallback'), // when using vue router history mode
   appPort = process.env.PORT || 80
 
 const app = express()
-// http = require('http').Server(api),
-// io = require('socket.io')(http)
-
-// io.set('origins', '*domain.com*:*')
-
-// api.use(function (req, res, next) {
-//   // Website you wish to allow to connect
-//   res.header('Access-Control-Allow-Origin', '*')
-
-//   // Request methods you wish to allow
-//   res.setHeader('Access-Control-Allow-Methods', 'GET')
-
-//   // Request headers you wish to allow
-//   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type')
-
-//   // Set to true if you need the website to include cookies in the requests sent
-//   // to the API (e.g. in case you use sessions)
-//   res.setHeader('Access-Control-Allow-Credentials', true)
-
-//   // Pass to next layer of middleware
-//   next()
-// })
-
-// io.on('connection', function (socket, next) {
-//   console.log('a user connected')
-//   socket.emit('data', json)
-// })
 
 app.get('/api', function (req, res) {
   for (var key in req.query) {
     if (key in json) {
-      if (key === 'power') {
+      if (key === 'mute') {
         json[key] = (req.query[key] === 'true')
-      } else if (key === 'volume') {
-        var volume = parseInt(req.query[key])
-        if (volume >= 0 && volume <= 100) {
-          json[key] = volume
+      } else if (key === 'master') {
+        var master = parseInt(req.query[key])
+        if (master >= 0 && master <= 100) {
+          json[key] = master
         }
       } else if (key.includes('eq')) {
         var eq = parseInt(req.query[key])
@@ -66,6 +38,8 @@ app.get('/api', function (req, res) {
         if (distance >= 0 && distance <= 100) {
           json[key] = distance
         }
+      } else if (key === 'fsa') {
+        json[key] = (req.query[key] === 'true')
       }
 
       console.log(key + ':  ' + json[key])

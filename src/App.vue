@@ -5,13 +5,17 @@
 </template>
 
 <script>
+
 export default {
   name: 'App',
-  // preFetch ({ store }) {
-  // },
+  created () {
+    var that = this
+    setInterval(function () {
+      that.$store.dispatch('appSettings/updateAppSettings', that)
+    }, 750)
+  },
   data () {
     return {
-      // json: null
     }
   }
 }

@@ -2,6 +2,7 @@
 
 module.exports = function (ctx) {
   return {
+    preFetch: true,
     // app plugins (/src/plugins)
     plugins: [
       'axios',
@@ -13,9 +14,9 @@ module.exports = function (ctx) {
     ],
     extras: [
       ctx.theme.mat ? 'roboto-font' : null,
-      'material-icons' // optional, you are not bound to it
+      'material-icons', // optional, you are not bound to it
       // 'ionicons',
-      // 'mdi',
+      'mdi'
       // 'fontawesome'
     ],
     supportIE: false,
@@ -23,7 +24,7 @@ module.exports = function (ctx) {
       scopeHoisting: true,
       vueRouterMode: 'history',
       // vueCompiler: true,
-      // gzip: true,
+      gzip: true,
       // analyze: true,
       // extractCSS: false,
       extendWebpack (cfg) {
@@ -43,6 +44,15 @@ module.exports = function (ctx) {
     // framework: 'all' --- includes everything; for dev only!
     framework: {
       components: [
+        'QCard',
+        'QCardTitle',
+        'QCardMain',
+        'QCardMedia',
+        'QCardSeparator',
+        'QCardActions',
+        'QCarousel',
+        'QCarouselSlide',
+        'QCarouselControl',
         'QToggle',
         'QSlider',
         'QKnob',
@@ -51,15 +61,18 @@ module.exports = function (ctx) {
         'QLayoutDrawer',
         'QPageContainer',
         'QPage',
+        'QPageSticky',
         'QToolbar',
         'QToolbarTitle',
-        // 'QBtn',
+        'QBtn',
         'QIcon',
         'QList',
         'QListHeader',
         'QItem',
         'QItemMain',
-        'QItemSide'
+        'QItemSide',
+        'QVideo',
+        'QModal'
       ],
       directives: [
         'Ripple'
@@ -67,7 +80,8 @@ module.exports = function (ctx) {
       // Quasar plugins
       plugins: [
         'Notify',
-        'Loading'
+        'Loading',
+        'AddressbarColor'
       ]
       // iconSet: ctx.theme.mat ? 'material-icons' : 'ionicons'
       // i18n: 'de' // Quasar language
@@ -79,11 +93,13 @@ module.exports = function (ctx) {
     },
     pwa: {
       // workboxPluginMode: 'InjectManifest',
-      workboxOptions: {},
+      workboxOptions: {
+        skipWaiting: true
+      },
       manifest: {
         name: 'Line Array Control',
-        short_name: 'Line Array Control',
-        description: 'Line Array Web App',
+        short_name: 'Line Array',
+        description: 'Line Array Control Web App',
         start_url: '/#/',
         display: 'standalone',
         orientation: 'portrait',

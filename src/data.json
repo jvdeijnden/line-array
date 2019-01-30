@@ -1,6 +1,6 @@
 {
-  "power": true,
-  "volume": 50,
+  "mute": false,
+  "master": 50,
 
   "eq0": 50,
   "eq1": 50,
@@ -12,16 +12,17 @@
   "eq7": 50,
   "eq8": 50,
 
-  "speaker0": 100,
-  "speaker1": 100,
-  "speaker2": 100,
-  "speaker3": 100,
-  "speaker4": 100,
-  "speaker5": 100,
-  "speaker6": 100,
-  "speaker7": 100,
-  "speaker8": 100,
+  "speaker0": 50,
+  "speaker1": 50,
+  "speaker2": 50,
+  "speaker3": 50,
+  "speaker4": 50,
+  "speaker5": 50,
+  "speaker6": 50,
+  "speaker7": 50,
+  "speaker8": 50,
 
+  "fsa": false,
   "angle": 0,
-  "distance": 5
+  "distance": 10
 }
