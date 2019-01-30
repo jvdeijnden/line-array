@@ -55,7 +55,18 @@ export default {
   methods: {
     updateEqualizerSeriescb () {
       this.series = [{
-        data: this.$store.state.appSettings.equalizer
+        // data: this.$store.state.appSettings.equalizer
+        data: [
+          this.$store.state.appSettings.eq0,
+          this.$store.state.appSettings.eq1,
+          this.$store.state.appSettings.eq2,
+          this.$store.state.appSettings.eq3,
+          this.$store.state.appSettings.eq4,
+          this.$store.state.appSettings.eq5,
+          this.$store.state.appSettings.eq6,
+          this.$store.state.appSettings.eq7,
+          this.$store.state.appSettings.eq8
+        ]
       }]
     }
   }

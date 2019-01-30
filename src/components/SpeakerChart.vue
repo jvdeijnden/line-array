@@ -71,9 +71,19 @@ export default {
   methods: {
     updateSpeakerSeriescb () {
       this.series = [{
-        data: this.$store.state.appSettings.speakers
+        // data: this.$store.state.appSettings.speakers
+        data: [
+          this.$store.state.appSettings.speaker0,
+          this.$store.state.appSettings.speaker1,
+          this.$store.state.appSettings.speaker2,
+          this.$store.state.appSettings.speaker3,
+          this.$store.state.appSettings.speaker4,
+          this.$store.state.appSettings.speaker5,
+          this.$store.state.appSettings.speaker6,
+          this.$store.state.appSettings.speaker7,
+          this.$store.state.appSettings.speaker8
+        ]
       }]
-      console.log('speakerseries updated')
     }
   }
 }

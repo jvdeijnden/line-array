@@ -37,6 +37,16 @@ export default {
     50
   ],
 
+  speaker0: 50,
+  speaker1: 50,
+  speaker2: 50,
+  speaker3: 50,
+  speaker4: 50,
+  speaker5: 50,
+  speaker6: 50,
+  speaker7: 50,
+  speaker8: 50,
+
   gains: [
     50,
     50,

@@ -55,6 +55,11 @@ export default {
           enabled: true,
           formatter (val) {
             return val + '%'
+          },
+          offsetY: -20,
+          style: {
+            fontSize: '11px',
+            colors: ['#000000']
           }
         }
       },
