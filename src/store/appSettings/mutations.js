@@ -41,6 +41,7 @@ export const
   },
 
   updateGains = (state) => {
+    console.log('gains calculated')
     if (state.mute) {
       state.gains = state.gains.map(x => 0)
     } else {
@@ -63,6 +64,7 @@ export const
   //   state.speakers[payload.speaker] = payload.gain
   // },
   updateSpeaker0 = (state, gain) => {
+    console.log(gain)
     state.speaker0 = gain
   },
   updateSpeaker1 = (state, gain) => {

@@ -39,29 +39,23 @@ export async function updateAppSettings ({commit, state}, that) {
             // commit('updateEqualizer', equalizerPayload)
 
             equalizerChanged = true
-          } if (response.data['speaker' + i] !== state.speakers[i]) {
-            commit('updateSpeaker' + i, response.data['speaker' + i])
+          }
+          if (response.data['speaker' + i] !== state['speaker' + i]) {
+            commit('updateSpeaker' + i, state['speaker' + i])
             speakerChanged = true
           }
         }
 
         if (equalizerChanged) {
           that.$root.$emit('updateEqualizerSeries')
+          equalizerChanged = false
         }
-
-        // for (var j = 0; j <= 8; j++) {
-        //   if (response.data['speaker' + j] !== state.speakers[j]) {
-        //     commit('updateSpeaker' + j, response.data['speaker' + j])
-        //     // var speakerPayload = {'speaker': j, 'gain': response.data['speaker' + j]}
-        //     // commit('updateSpeakers', speakerPayload)
-        //     speakerChanged = true
-        //   }
-        // }
 
         if (speakerChanged) {
           commit('updateGains')
           that.$root.$emit('updateSpeakerSeries')
           that.$root.$emit('updateGainSeries')
+          speakerChanged = false
         }
 
         if (response.data.angle !== state.angle) {

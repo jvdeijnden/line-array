@@ -146,7 +146,7 @@ export default {
       set (val) {
         this.jsonWrite('speaker0', val)
         this.$store.commit('appSettings/updateSpeaker0', val)
-        this.$store.commit('updateGains')
+        this.$store.commit('appSettings/updateGains')
 
         for (var i = 0; i <= 8; i++) {
           this.jsonWrite('gain' + i, this.$store.state.appSettings.gains[i])
@@ -163,7 +163,7 @@ export default {
       set (val) {
         this.jsonWrite('speaker1', val)
         this.$store.commit('appSettings/updateSpeaker1', val)
-        this.$store.commit('updateGains')
+        this.$store.commit('appSettings/updateGains')
 
         for (var i = 0; i <= 8; i++) {
           this.jsonWrite('gain' + i, this.$store.state.appSettings.gains[i])
@@ -179,7 +179,7 @@ export default {
       set (val) {
         this.jsonWrite('speaker2', val)
         this.$store.commit('appSettings/updateSpeaker2', val)
-        this.$store.commit('updateGains')
+        this.$store.commit('appSettings/updateGains')
         for (var i = 0; i <= 8; i++) {
           this.jsonWrite('gain' + i, this.$store.state.appSettings.gains[i])
         }
@@ -194,7 +194,7 @@ export default {
       set (val) {
         this.jsonWrite('speaker3', val)
         this.$store.commit('appSettings/updateSpeaker3', val)
-        this.$store.commit('updateGains')
+        this.$store.commit('appSettings/updateGains')
         for (var i = 0; i <= 8; i++) {
           this.jsonWrite('gain' + i, this.$store.state.appSettings.gains[i])
         }
@@ -209,7 +209,7 @@ export default {
       set (val) {
         this.jsonWrite('speaker4', val)
         this.$store.commit('appSettings/updateSpeaker4', val)
-        this.$store.commit('updateGains')
+        this.$store.commit('appSettings/updateGains')
         for (var i = 0; i <= 8; i++) {
           this.jsonWrite('gain' + i, this.$store.state.appSettings.gains[i])
         }
@@ -224,7 +224,7 @@ export default {
       set (val) {
         this.jsonWrite('speaker5', val)
         this.$store.commit('appSettings/updateSpeaker5', val)
-        this.$store.commit('updateGains')
+        this.$store.commit('appSettings/updateGains')
         for (var i = 0; i <= 8; i++) {
           this.jsonWrite('gain' + i, this.$store.state.appSettings.gains[i])
         }
@@ -239,7 +239,7 @@ export default {
       set (val) {
         this.jsonWrite('speaker6', val)
         this.$store.commit('appSettings/updateSpeaker6', val)
-        this.$store.commit('updateGains')
+        this.$store.commit('appSettings/updateGains')
         for (var i = 0; i <= 8; i++) {
           this.jsonWrite('gain' + i, this.$store.state.appSettings.gains[i])
         }
@@ -254,7 +254,7 @@ export default {
       set (val) {
         this.jsonWrite('speaker7', val)
         this.$store.commit('appSettings/updateSpeaker7', val)
-        this.$store.commit('updateGains')
+        this.$store.commit('appSettings/updateGains')
         for (var i = 0; i <= 8; i++) {
           this.jsonWrite('gain' + i, this.$store.state.appSettings.gains[i])
         }
@@ -269,7 +269,7 @@ export default {
       set (val) {
         this.jsonWrite('speaker8', val)
         this.$store.commit('appSettings/updateSpeaker8', val)
-        this.$store.commit('updateGains')
+        this.$store.commit('appSettings/updateGains')
         for (var i = 0; i <= 8; i++) {
           this.jsonWrite('gain' + i, this.$store.state.appSettings.gains[i])
         }
@@ -286,6 +286,8 @@ export default {
       for (var i = 0; i <= 8; i++) {
         this['speaker' + i] = 50
       }
+
+      this.$store.commit()
       this.$q.notify({
         message: 'Speakers reset',
         type: 'info',
