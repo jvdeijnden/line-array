@@ -22,6 +22,16 @@
   "speaker7": 50,
   "speaker8": 50,
 
+  "gain0": 25,
+  "gain1": 25,
+  "gain2": 25,
+  "gain3": 25,
+  "gain4": 25,
+  "gain5": 25,
+  "gain6": 25,
+  "gain7": 25,
+  "gain8": 25,
+
   "fsa": false,
   "angle": 0,
   "distance": 10

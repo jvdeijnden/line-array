@@ -95,6 +95,10 @@ export default {
         this.$store.commit('appSettings/updateMute', val)
         this.$store.commit('appSettings/updateGains')
 
+        for (var i = 0; i <= 8; i++) {
+          this.jsonWrite('gain' + i, this.$store.state.appSettings.gains[i])
+        }
+
         this.$root.$emit('updateGainSeries')
       }
     },
@@ -107,6 +111,10 @@ export default {
 
         this.$store.commit('appSettings/updateMaster', val)
         this.$store.commit('appSettings/updateGains')
+
+        for (var i = 0; i <= 8; i++) {
+          this.jsonWrite('gain' + i, this.$store.state.appSettings.gains[i])
+        }
 
         this.$root.$emit('updateGainSeries')
       }
