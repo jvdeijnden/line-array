@@ -284,7 +284,7 @@ export default {
     },
     resetSpeakers () {
       for (var i = 0; i <= 8; i++) {
-        this.speakers = {'speaker': i, 'gain': 50}
+        this['speaker' + i] = 50
       }
       this.$q.notify({
         message: 'Speakers reset',
