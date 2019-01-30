@@ -1,36 +1,40 @@
 <template>
-  <q-page padding class="docs-input row justify-center">
-    <beaming-chart></beaming-chart>
-    <div>
-      <p class="caption">Full spectrum audio</p>
-      <q-toggle
-        :value="fsa"
-        name="fsa"
-        left-label
-        color="pantone"
-        @change="val => { fsa = val }"
-      />
-      <p class="caption">Beaming angle</p>
-      <q-slider
-        :value="angle"
-        :min="0"
-        :max="35"
-        :step="1"
-        color="pantone"
-        @change="val => { angle = val }"
-        label
-      />
-      <p class="caption">Beaming distance</p>
-      <q-slider
-        disable=true
-        :value="distance"
-        :min="0"
-        :max="10"
-        :step="1"
-        color="pantone"
-        @change="val => { distance = val }"
-        label
-      />
+  <q-page padding>
+    <div class="row">
+      <div class="col q-ma-md">
+        <beaming-chart></beaming-chart>
+      </div>
+      <div class="col-lg q-ma-md justify-center">
+        <p class="caption">Full spectrum audio</p>
+        <q-toggle
+          :value="fsa"
+          name="fsa"
+          left-label
+          color="pantone"
+          @change="val => { fsa = val }"
+        />
+        <p class="caption">Beaming angle</p>
+        <q-slider
+          :value="angle"
+          :min="0"
+          :max="35"
+          :step="1"
+          color="pantone"
+          @change="val => { angle = val }"
+          label
+        />
+        <p class="caption">Beaming distance</p>
+        <q-slider
+          disable=true
+          :value="distance"
+          :min="0"
+          :max="10"
+          :step="1"
+          color="pantone"
+          @change="val => { distance = val }"
+          label
+        />
+      </div>
     </div>
   </q-page>
 </template>

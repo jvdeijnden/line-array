@@ -1,99 +1,104 @@
 <template>
-  <q-page padding class="docs-input row justify-center">
-    <speaker-chart></speaker-chart>
-    <div id="speakers">
-      <!-- <q-slider
-        v-for="(speaker, index) in speakers"
-        :key="index"
-        :value="speaker"
-        :min="0"
-        :max="100"
-        :step="1"
-        color="pantone"
-        @change="val => { speakers = {'speaker': index, 'gain': val} }"
-        label
-      /> -->
-      <q-slider
-        :value="speaker0"
-        :min="0"
-        :max="100"
-        :step="1"
-        color="pantone"
-        @change="val => { speaker0 = val}"
-        label
-      />
-      <q-slider
-        :value="speaker1"
-        :min="0"
-        :max="100"
-        :step="1"
-        color="pantone"
-        @change="val => { speaker1 = val}"
-        label
-      />
-      <q-slider
-        :value="speaker2"
-        :min="0"
-        :max="100"
-        :step="1"
-        color="pantone"
-        @change="val => { speaker2 = val}"
-        label
-      />
-      <q-slider
-        :value="speaker3"
-        :min="0"
-        :max="100"
-        :step="1"
-        color="pantone"
-        @change="val => { speaker3 = val}"
-        label
-      />
-      <q-slider
-        :value="speaker4"
-        :min="0"
-        :max="100"
-        :step="1"
-        color="pantone"
-        @change="val => { speaker4 = val}"
-        label
-      />
-      <q-slider
-        :value="speaker5"
-        :min="0"
-        :max="100"
-        :step="1"
-        color="pantone"
-        @change="val => { speaker5 = val}"
-        label
-      />
-      <q-slider
-        :value="speaker6"
-        :min="0"
-        :max="100"
-        :step="1"
-        color="pantone"
-        @change="val => { speaker6 = val}"
-        label
-      />
-      <q-slider
-        :value="speaker7"
-        :min="0"
-        :max="100"
-        :step="1"
-        color="pantone"
-        @change="val => { speaker7 = val}"
-        label
-      />
-      <q-slider
-        :value="speaker8"
-        :min="0"
-        :max="100"
-        :step="1"
-        color="pantone"
-        @change="val => { speaker8 = val}"
-        label
-      />
+  <q-page padding>
+    <div class="row">
+      <div class="col q-ma-md">
+        <speaker-chart></speaker-chart>
+      </div>
+      <div class="col-lg q-ma-md justify-center">
+        <p class="caption">9 speaker drivers</p>
+        <!-- <q-slider
+          v-for="(speaker, index) in speakers"
+          :key="index"
+          :value="speaker"
+          :min="0"
+          :max="100"
+          :step="1"
+          color="pantone"
+          @change="val => { speakers = {'speaker': index, 'gain': val} }"
+          label
+        /> -->
+        <q-slider
+          :value="speaker0"
+          :min="0"
+          :max="100"
+          :step="1"
+          color="pantone"
+          @change="val => { speaker0 = val}"
+          label
+        />
+        <q-slider
+          :value="speaker1"
+          :min="0"
+          :max="100"
+          :step="1"
+          color="pantone"
+          @change="val => { speaker1 = val}"
+          label
+        />
+        <q-slider
+          :value="speaker2"
+          :min="0"
+          :max="100"
+          :step="1"
+          color="pantone"
+          @change="val => { speaker2 = val}"
+          label
+        />
+        <q-slider
+          :value="speaker3"
+          :min="0"
+          :max="100"
+          :step="1"
+          color="pantone"
+          @change="val => { speaker3 = val}"
+          label
+        />
+        <q-slider
+          :value="speaker4"
+          :min="0"
+          :max="100"
+          :step="1"
+          color="pantone"
+          @change="val => { speaker4 = val}"
+          label
+        />
+        <q-slider
+          :value="speaker5"
+          :min="0"
+          :max="100"
+          :step="1"
+          color="pantone"
+          @change="val => { speaker5 = val}"
+          label
+        />
+        <q-slider
+          :value="speaker6"
+          :min="0"
+          :max="100"
+          :step="1"
+          color="pantone"
+          @change="val => { speaker6 = val}"
+          label
+        />
+        <q-slider
+          :value="speaker7"
+          :min="0"
+          :max="100"
+          :step="1"
+          color="pantone"
+          @change="val => { speaker7 = val}"
+          label
+        />
+        <q-slider
+          :value="speaker8"
+          :min="0"
+          :max="100"
+          :step="1"
+          color="pantone"
+          @change="val => { speaker8 = val}"
+          label
+        />
+      </div>
     </div>
     <q-page-sticky position="bottom-right" :offset="[25, 25]">
       <q-btn round color="pantone" @click="resetSpeakers()" icon="mdi-undo" />
@@ -302,6 +307,6 @@ export default {
 <style scoped>
 #speakers {
   width: 60vw;
-  height: 60vh;
+  /* height: 60vh; */
 }
 </style>
