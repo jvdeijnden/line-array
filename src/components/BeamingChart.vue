@@ -27,13 +27,19 @@ export default {
           min: 0,
           max: 10,
           type: 'numeric',
-          tickAmount: 10
+          tickAmount: 10,
+          title: {
+            text: 'Distance [m]'
+          }
         },
         yaxis: {
           min: -7,
           max: 0,
           opposite: false,
-          tickAmount: 7
+          tickAmount: 7,
+          title: {
+            text: 'Distance [m]'
+          }
         },
         stroke: {
           width: [5, 0],
