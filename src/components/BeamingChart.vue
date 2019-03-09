@@ -38,7 +38,7 @@ export default {
           opposite: false,
           tickAmount: 7,
           title: {
-            text: 'Distance [m]'
+            text: 'Height [m]'
           }
         },
         stroke: {
