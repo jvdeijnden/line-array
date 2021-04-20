@@ -24,7 +24,7 @@
     "pages": "0.0.16",
     "request": "^2.88.0",
     "serve-static": "^1.13.2",
-    "sockjs": "^0.3.19",
+    "sockjs": "^0.3.20",
     "vue": "^2.5.22",
     "vue-apexcharts": "^1.2.8",
     "vue-cli": "^2.9.6",
